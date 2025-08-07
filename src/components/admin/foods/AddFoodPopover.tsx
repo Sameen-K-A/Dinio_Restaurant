@@ -25,7 +25,7 @@ export function AddFoodPopover() {
         <PopoverTrigger asChild>
           <Button
             variant="default"
-            className="font-semibold px-6 py-2 rounded-lg shadow-md transition-all duration-200 bg-accent-foreground text-accent cursor-pointer border-0"
+            className="font-semibold px-6 py-2 rounded-lg transition-all duration-200 bg-accent-foreground text-accent cursor-pointer border-0"
           >
             + Add Items
           </Button>
@@ -36,7 +36,7 @@ export function AddFoodPopover() {
             <p className="text-sm text-muted-foreground mb-5 text-center">Choose how you want to add new food items to your menu.</p>
             <div className="flex gap-3 items-stretch">
               <button
-                className="flex-1 flex flex-col items-center bg-muted hover:bg-muted/80 rounded-xl p-5 shadow hover:shadow-lg transition cursor-pointer border border-muted-foreground/10 group"
+                className="flex-1 flex flex-col items-center bg-muted hover:bg-muted/80 rounded-xl p-5 transition cursor-pointer border border-muted-foreground/10 group"
                 type="button"
                 aria-label="Add food item manually"
                 onClick={handleManual}
@@ -49,7 +49,7 @@ export function AddFoodPopover() {
               </button>
               <div className="w-px bg-muted-foreground/20 mx-1" />
               <button
-                className="flex-1 flex flex-col items-center bg-muted hover:bg-muted/80 rounded-xl p-5 shadow hover:shadow-lg transition cursor-pointer border border-muted-foreground/10 group"
+                className="flex-1 flex flex-col items-center bg-muted hover:bg-muted/80 rounded-xl p-5 transition cursor-pointer border border-muted-foreground/10 group"
                 type="button"
                 aria-label="Upload food items using CSV"
                 onClick={handleCSV}

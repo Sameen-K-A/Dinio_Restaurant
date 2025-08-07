@@ -14,7 +14,7 @@ export function AppSidebar({ sidebarData, ...props }: AppSidebarProps) {
             <img
               src="/svgs/logo.svg"
               alt="Dinio Logo"
-              className="h-8 w-auto my-4 ml-2"
+              className="h-8 w-auto my-4 ml-2 logo-img"
               draggable="false"
             />
           </SidebarMenuItem>
