@@ -1,3 +1,10 @@
+export type Employee = {
+   empId: string;
+   name: string;
+   phone: string;
+   joiningDate: string;
+   status: 'Working' | 'Terminated';
+};
 export interface IsidebarItems {
    title: string;
    url: string;
