@@ -12,39 +12,39 @@ export default function AdminLayout() {
   const sidebarData: IsidebarItems[] = [
     {
       title: "Dashboard",
-      url: ROUTE.DASHBOARD,
+      url: ROUTE.ADMIN.DASHBOARD,
       icon: IconDashboard,
-      onClick: () => navigate(ROUTE.DASHBOARD),
+      onClick: () => navigate(ROUTE.ADMIN.DASHBOARD),
     },
     {
       title: "Orders",
-      url: ROUTE.ORDERS,
+      url: ROUTE.ADMIN.ORDERS,
       icon: IconListDetails,
-      onClick: () => navigate(ROUTE.ORDERS),
+      onClick: () => navigate(ROUTE.ADMIN.ORDERS),
     },
     {
       title: "Food items",
-      url: ROUTE.FOODS,
+      url: ROUTE.ADMIN.FOODS,
       icon: IconFishBone,
-      onClick: () => navigate(ROUTE.FOODS),
+      onClick: () => navigate(ROUTE.ADMIN.FOODS),
     },
     {
       title: "Employees",
-      url: ROUTE.EMPLOYEES,
+      url: ROUTE.ADMIN.EMPLOYEES,
       icon: IconChefHat,
-      onClick: () => navigate(ROUTE.EMPLOYEES),
+      onClick: () => navigate(ROUTE.ADMIN.EMPLOYEES),
     },
     {
       title: "Subscription",
-      url: ROUTE.SUBSCRIPTION,
+      url: ROUTE.ADMIN.SUBSCRIPTION,
       icon: IconCrown,
-      onClick: () => navigate(ROUTE.SUBSCRIPTION),
+      onClick: () => navigate(ROUTE.ADMIN.SUBSCRIPTION),
     },
     {
       title: "Accounts",
-      url: ROUTE.ACCOUNTS,
+      url: ROUTE.ADMIN.ACCOUNTS,
       icon: IconSettings,
-      onClick: () => navigate(ROUTE.ACCOUNTS),
+      onClick: () => navigate(ROUTE.ADMIN.ACCOUNTS),
     },
   ];
 
