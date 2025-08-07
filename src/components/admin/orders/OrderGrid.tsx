@@ -1,16 +1,19 @@
 import type { Order } from '@/types/admin';
+import { useNavigate } from 'react-router-dom';
 
 interface OrderGridProps {
   orders: Order[];
 }
 
 export function OrderGrid({ orders }: OrderGridProps) {
+  const navigate = useNavigate();
   return (
     <div className="grid gap-2 grid-cols-[repeat(auto-fill,minmax(280px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(350px,1fr))]">
       {orders.map((order) => (
         <div
           key={order.orderId}
-          className="relative rounded-2xl border bg-background p-6 flex flex-col group"
+          className="relative rounded-2xl border bg-background p-6 flex flex-col group cursor-pointer"
+          onClick={() => navigate(`/orders/${order.orderId}`)}
         >
 
           <span className="absolute top-4 left-4 bg-muted text-muted-foreground text-xs font-mono px-2 py-1 rounded border select-none">

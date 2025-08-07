@@ -1,7 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import Dashboard from "@/pages/admin/Dashboard";
 import Foods from "@/pages/admin/Foods";
-import Orders from "@/pages/admin/Orders";
+import Orders from "@/pages/admin/orders/Orders";
+import OrderDetails from "@/pages/admin/orders/OrderDetails";
 import Employees from "@/pages/admin/Employees";
 import Subscription from "@/pages/admin/Subscription";
 import Accounts from "@/pages/admin/Accounts";
@@ -13,6 +14,7 @@ export default function AppRoutes() {
       <Route element={<AdminLayout />}>
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="orders" element={<Orders />} />
+        <Route path="orders/:id" element={<OrderDetails />} />
         <Route path="foods" element={<Foods />} />
         <Route path="employees" element={<Employees />} />
         <Route path="subscription" element={<Subscription />} />

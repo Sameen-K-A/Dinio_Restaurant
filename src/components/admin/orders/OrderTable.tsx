@@ -1,5 +1,5 @@
 import type { Order } from '@/types/admin';
-import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 
 interface OrderTableProps {
@@ -7,7 +7,7 @@ interface OrderTableProps {
 }
 
 export function OrderTable({ orders }: OrderTableProps) {
-
+  const navigate = useNavigate();
   return (
     <div className="w-full overflow-x-auto rounded-lg border bg-background">
       <Table>
@@ -15,13 +15,16 @@ export function OrderTable({ orders }: OrderTableProps) {
           <TableRow>
             <TableHead className="text-left px-4 py-2 whitespace-nowrap w-[80px]">Order ID</TableHead>
             <TableHead className="text-left px-4 py-2 whitespace-nowrap">Items</TableHead>
-            <TableHead className="text-center px-4 py-2 whitespace-nowrap">Table No</TableHead>
-            <TableHead className="text-right px-4 py-2 whitespace-nowrap"></TableHead>
+            <TableHead className="text-end px-4 py-2 whitespace-nowrap">Table No</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {orders.map((order) => (
-            <TableRow key={order.orderId} className="not-odd:bg-muted/50 hover:bg-muted transition-colors duration-200">
+            <TableRow
+              key={order.orderId}
+              className="not-odd:bg-muted/50 hover:bg-muted transition-colors duration-200 cursor-pointer"
+              onClick={() => navigate(`/orders/${order.orderId}`)}
+            >
               <TableCell className="text-left px-4 py-2 whitespace-nowrap font-mono text-xs text-muted-foreground">{order.orderId}</TableCell>
               <TableCell className="text-left px-4 py-2 whitespace-nowrap">
                 <div className="flex items-center">
@@ -52,16 +55,10 @@ export function OrderTable({ orders }: OrderTableProps) {
                   </div>
                 </div>
               </TableCell>
-              <TableCell className="text-center px-4 py-2 whitespace-nowrap">
-                <span className="inline-flex items-center justify-center h-8 w-8 rounded-md bg-muted text-base text-foreground border border-muted font-semibold">
+              <TableCell className="text-end px-4 py-2 whitespace-nowrap">
+                <span className="inline-flex items-center justify-center h-8 w-8 rounded-md bg-accent-foreground text-base text-accent border border-muted font-semibold">
                   {order.tableNo}
                 </span>
-              </TableCell>
-              <TableCell className="text-right px-4 py-2 whitespace-nowrap align-middle">
-                <button className="px-4 py-2 rounded-md bg-primary text-primary-foreground font-bold shadow flex items-center gap-2 ml-auto cursor-pointer transition-colors duration-150 hover:bg-primary/80 hover:scale-[1.03]">
-                  <span className="text-sm font-semibold">Next</span>
-                  <ArrowRight size={18} className="text-primary-foreground" />
-                </button>
               </TableCell>
             </TableRow>
           ))}
