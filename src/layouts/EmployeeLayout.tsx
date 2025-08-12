@@ -1,13 +1,42 @@
-import EmployeeNavbar from "../components/employee/navbar/EmployeeNavbar";
-import { Outlet } from "react-router-dom";
+import { AppSidebar } from "@/components/employee/sidebar/AppSidebar";
+import { Header } from "@/components/employee/sidebar/Header";
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import { ROUTE } from "@/routes/router";
+import type { InavbarItems } from "@/types/employee";
+import { IconDashboard, IconFishBone, IconListDetails } from "@tabler/icons-react";
+import { Outlet, useNavigate } from "react-router-dom";
 
 export default function EmployeeLayout() {
+
+  const navigate = useNavigate();
+  const sidebarData: InavbarItems[] = [
+    {
+      title: "Dashboard",
+      url: ROUTE.EMPLOYEE.DASHBOARD,
+      icon: IconDashboard,
+      onClick: () => navigate(ROUTE.EMPLOYEE.DASHBOARD),
+    },
+    {
+      title: "Orders",
+      url: ROUTE.EMPLOYEE.ORDERS,
+      icon: IconListDetails,
+      onClick: () => navigate(ROUTE.EMPLOYEE.ORDERS),
+    },
+    {
+      title: "Food items",
+      url: ROUTE.EMPLOYEE.FOODS,
+      icon: IconFishBone,
+      onClick: () => navigate(ROUTE.EMPLOYEE.FOODS),
+    },
+  ];
+
   return (
-    <div className="min-h-screen px-4">
-      <EmployeeNavbar />
-      <div className="pt-5 md:pt-10">
+    <SidebarProvider>
+      <AppSidebar variant="inset" sidebarData={sidebarData} />
+      <SidebarInset className="p-4">
+        <Header sidebarData={sidebarData} />
         <Outlet />
-      </div>
-    </div>
+      </SidebarInset>
+    </SidebarProvider>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FoodFormDialog } from "@/components/admin/foods/FoodFormDialog";
+import { FoodFormDialog } from "@/components/shared/foods/FoodFormDialog";
 import type { IFood } from "@/types/admin";
 
 export const FoodCard: React.FC<IFood> = ({ foodId, name, amount, quantity, image }) => {

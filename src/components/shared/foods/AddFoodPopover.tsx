@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { FoodFormDialog } from "@/components/admin/foods/FoodFormDialog";
+import { FoodFormDialog } from "@/components/shared/foods/FoodFormDialog";
 
 export function AddFoodPopover() {
   const fileInputRef = useRef<HTMLInputElement>(null);

@@ -3,17 +3,17 @@ import { ROUTE } from "@/routes/router";
 
 // Admin imports
 import Dashboard from "@/pages/admin/Dashboard";
-import Foods from "@/pages/admin/Foods";
-import Orders from "@/pages/admin/orders/Orders";
-import OrderDetails from "@/pages/admin/orders/OrderDetails";
 import Employees from "@/pages/admin/Employees";
 import Subscription from "@/pages/admin/Subscription";
 import Accounts from "@/pages/admin/Accounts";
 
 // Employee imports
 import EmployeeDashboard from "@/pages/employee/Dashboard";
-import EmployeeOrders from "@/pages/employee/Orders";
-import EmployeeProfile from "@/pages/employee/Profile";
+
+// Shared imports
+import Orders from "@/pages/shared/orders/Orders";
+import OrderDetails from "@/pages/shared/orders/OrderDetails";
+import Foods from "@/pages/shared/Foods";
 
 // Layout imports
 import AdminLayout from "@/layouts/AdminLayout";
@@ -37,8 +37,9 @@ export default function AppRoutes() {
       {/* Employee routes */}
       <Route element={<EmployeeLayout />}>
         <Route path={ROUTE.EMPLOYEE.DASHBOARD} element={<EmployeeDashboard />} />
-        <Route path={ROUTE.EMPLOYEE.ORDERS} element={<EmployeeOrders />} />
-        <Route path={ROUTE.EMPLOYEE.PROFILE} element={<EmployeeProfile />} />
+        <Route path={ROUTE.EMPLOYEE.ORDERS} element={<Orders />} />
+        <Route path={ROUTE.EMPLOYEE.ORDERS + "/:id"} element={<OrderDetails />} />
+        <Route path={ROUTE.EMPLOYEE.FOODS} element={<Foods />} />
       </Route>
     </Routes>
   );

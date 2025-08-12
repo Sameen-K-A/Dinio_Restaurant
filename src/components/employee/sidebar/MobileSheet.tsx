@@ -1,18 +1,18 @@
 import { Sheet, SheetContent, SheetHeader, SheetClose, SheetTrigger } from '@/components/ui/sheet';
-import type { IsidebarItems } from '@/types/admin';
+import type { InavbarItems } from '@/types/employee';
 import { ChevronLeft, Menu } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 import * as React from 'react';
 
 interface MobileSheetProps {
-  sidebarData: IsidebarItems[];
+  sidebarData: InavbarItems[];
 }
 
 export function MobileSheet({ sidebarData }: MobileSheetProps) {
   const location = useLocation();
   const [open, setOpen] = React.useState(false);
 
-  const handleItemClick = (item: IsidebarItems) => {
+  const handleItemClick = (item: InavbarItems) => {
     item.onClick();
     setOpen(false);
   };

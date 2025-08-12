@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { orders } from '@/constants/orders';
-import { OrderTable } from '@/components/admin/orders/OrderTable';
-import { OrderGrid } from '@/components/admin/orders/OrderGrid';
-import { CategoriesTabs } from '@/components/admin/orders/CategoriesTabs';
+import { OrderTable } from '@/components/shared/orders/OrderTable';
+import { OrderGrid } from '@/components/shared/orders/OrderGrid';
+import { CategoriesTabs } from '@/components/shared/orders/CategoriesTabs';
 
 const categories = [
   { label: 'All Orders', count: 224 },

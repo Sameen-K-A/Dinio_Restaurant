@@ -10,6 +10,6 @@ export const ROUTE = {
   EMPLOYEE: {
     DASHBOARD: "/employee/dashboard",
     ORDERS: "/employee/orders",
-    PROFILE: "/employee/profile"
+    FOODS: "/employee/foods"
   },
 };
