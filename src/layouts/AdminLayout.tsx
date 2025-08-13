@@ -15,36 +15,42 @@ export default function AdminLayout() {
       url: ROUTE.ADMIN.DASHBOARD,
       icon: IconDashboard,
       onClick: () => navigate(ROUTE.ADMIN.DASHBOARD),
+      isAvailable: false,
     },
     {
       title: "Orders",
       url: ROUTE.ADMIN.ORDERS,
       icon: IconListDetails,
       onClick: () => navigate(ROUTE.ADMIN.ORDERS),
+      isAvailable: true,
     },
     {
       title: "Food items",
       url: ROUTE.ADMIN.FOODS,
       icon: IconFishBone,
       onClick: () => navigate(ROUTE.ADMIN.FOODS),
+      isAvailable: true,
     },
     {
       title: "Employees",
       url: ROUTE.ADMIN.EMPLOYEES,
       icon: IconChefHat,
       onClick: () => navigate(ROUTE.ADMIN.EMPLOYEES),
+      isAvailable: true,
     },
     {
       title: "Subscription",
       url: ROUTE.ADMIN.SUBSCRIPTION,
       icon: IconCrown,
       onClick: () => navigate(ROUTE.ADMIN.SUBSCRIPTION),
+      isAvailable: false,
     },
     {
       title: "Accounts",
       url: ROUTE.ADMIN.ACCOUNTS,
       icon: IconSettings,
       onClick: () => navigate(ROUTE.ADMIN.ACCOUNTS),
+      isAvailable: false,
     },
   ];
 

@@ -41,8 +41,8 @@ export function MobileSheet({ sidebarData }: MobileSheetProps) {
             return (
               <button
                 key={item.title}
-                className={`flex items-center gap-2 p-2 rounded-lg text-left transition-colors hover:bg-muted ${isActive ? 'bg-muted font-semibold text-primary' : ''}`}
-                onClick={() => handleItemClick(item)}
+                className={`flex items-center gap-2 p-2 rounded-lg text-left transition-colors hover:bg-muted ${isActive ? 'bg-muted font-semibold text-primary' : ''} ${item.isAvailable ? "hover:bg-muted" : "bg-muted/20 cursor-not-allowed hover:bg-muted/20 text-muted-foreground hover:text-muted-foreground line-through"}`}
+                onClick={() => item.isAvailable && handleItemClick(item)}
               >
                 {item.icon && <item.icon />}
                 <span>{item.title}</span>

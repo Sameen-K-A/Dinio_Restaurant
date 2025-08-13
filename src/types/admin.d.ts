@@ -11,6 +11,7 @@ export interface IsidebarItems {
    url: string;
    icon: React.ElementType;
    onClick: () => void;
+   isAvailable: boolean,
 };
 
 export interface IFood {

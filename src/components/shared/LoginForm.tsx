@@ -29,7 +29,7 @@ export function LoginForm() {
           </div>
           <Input id="password" type="password" />
         </div>
-        <Button type="button" onClick={() => navigate(ROUTE.ADMIN.DASHBOARD)} className="w-full cursor-pointer">
+        <Button type="button" onClick={() => navigate(ROUTE.ADMIN.ORDERS)} className="w-full cursor-pointer">
           Login
         </Button>
       </div>

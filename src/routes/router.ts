@@ -1,4 +1,5 @@
 export const ROUTE = {
+  NOT_FOUND: "*",
   DEFAULT: "/",
   LOGIN: "/login",
   ADMIN: {

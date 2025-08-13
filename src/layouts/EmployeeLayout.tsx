@@ -15,18 +15,21 @@ export default function EmployeeLayout() {
       url: ROUTE.EMPLOYEE.DASHBOARD,
       icon: IconDashboard,
       onClick: () => navigate(ROUTE.EMPLOYEE.DASHBOARD),
+      isAvailable: false,
     },
     {
       title: "Orders",
       url: ROUTE.EMPLOYEE.ORDERS,
       icon: IconListDetails,
       onClick: () => navigate(ROUTE.EMPLOYEE.ORDERS),
+      isAvailable: true,
     },
     {
       title: "Food items",
       url: ROUTE.EMPLOYEE.FOODS,
       icon: IconFishBone,
       onClick: () => navigate(ROUTE.EMPLOYEE.FOODS),
+      isAvailable: true,
     },
   ];
 

@@ -3,4 +3,5 @@ export interface InavbarItems {
   url: string;
   icon: React.ComponentType<{ size?: number }>;
   onClick: () => void;
+  isAvailable: boolean;
 };

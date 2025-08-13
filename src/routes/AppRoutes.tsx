@@ -5,13 +5,13 @@ import { ROUTE } from "@/routes/router";
 import Login from "@/pages/shared/Login";
 
 // Admin imports
-import Dashboard from "@/pages/admin/Dashboard";
+// import Dashboard from "@/pages/admin/Dashboard";
 import Employees from "@/pages/admin/Employees";
-import Subscription from "@/pages/admin/Subscription";
-import Accounts from "@/pages/admin/Accounts";
+// import Subscription from "@/pages/admin/Subscription";
+// import Accounts from "@/pages/admin/Accounts";
 
 // Employee imports
-import EmployeeDashboard from "@/pages/employee/Dashboard";
+// import EmployeeDashboard from "@/pages/employee/Dashboard";
 
 // Shared imports
 import Orders from "@/pages/shared/orders/Orders";
@@ -21,6 +21,8 @@ import Foods from "@/pages/shared/Foods";
 // Layout imports
 import AdminLayout from "@/layouts/AdminLayout";
 import EmployeeLayout from "@/layouts/EmployeeLayout";
+import WrapperLayout from "@/layouts/WrapperLayout";
+import NotFoundPage from "@/components/others/Error404";
 
 export default function AppRoutes() {
   return (
@@ -30,24 +32,30 @@ export default function AppRoutes() {
       <Route path={ROUTE.LOGIN} element={<Login />} />
       <Route path={ROUTE.DEFAULT} element={<Navigate to={ROUTE.LOGIN} replace />} />
 
-      {/* Admin routes */}
-      <Route element={<AdminLayout />}>
-        <Route path={ROUTE.ADMIN.DASHBOARD} element={<Dashboard />} />
-        <Route path={ROUTE.ADMIN.ORDERS} element={<Orders />} />
-        <Route path={ROUTE.ADMIN.ORDERS + "/:id"} element={<OrderDetails />} />
-        <Route path={ROUTE.ADMIN.FOODS} element={<Foods />} />
-        <Route path={ROUTE.ADMIN.EMPLOYEES} element={<Employees />} />
-        <Route path={ROUTE.ADMIN.SUBSCRIPTION} element={<Subscription />} />
-        <Route path={ROUTE.ADMIN.ACCOUNTS} element={<Accounts />} />
-      </Route>
+      <Route element={<WrapperLayout />}>
 
-      {/* Employee routes */}
-      <Route element={<EmployeeLayout />}>
-        <Route path={ROUTE.EMPLOYEE.DASHBOARD} element={<EmployeeDashboard />} />
-        <Route path={ROUTE.EMPLOYEE.ORDERS} element={<Orders />} />
-        <Route path={ROUTE.EMPLOYEE.ORDERS + "/:id"} element={<OrderDetails />} />
-        <Route path={ROUTE.EMPLOYEE.FOODS} element={<Foods />} />
+        {/* Admin routes */}
+        <Route element={<AdminLayout />}>
+          {/* <Route path={ROUTE.ADMIN.DASHBOARD} element={<Dashboard />} /> */}
+          <Route path={ROUTE.ADMIN.ORDERS} element={<Orders />} />
+          <Route path={ROUTE.ADMIN.ORDERS + "/:id"} element={<OrderDetails />} />
+          <Route path={ROUTE.ADMIN.FOODS} element={<Foods />} />
+          <Route path={ROUTE.ADMIN.EMPLOYEES} element={<Employees />} />
+          {/* <Route path={ROUTE.ADMIN.SUBSCRIPTION} element={<Subscription />} /> */}
+          {/* <Route path={ROUTE.ADMIN.ACCOUNTS} element={<Accounts />} /> */}
+        </Route>
+
+        {/* Employee routes */}
+        <Route element={<EmployeeLayout />}>
+          {/* <Route path={ROUTE.EMPLOYEE.DASHBOARD} element={<EmployeeDashboard />} /> */}
+          <Route path={ROUTE.EMPLOYEE.ORDERS} element={<Orders />} />
+          <Route path={ROUTE.EMPLOYEE.ORDERS + "/:id"} element={<OrderDetails />} />
+          <Route path={ROUTE.EMPLOYEE.FOODS} element={<Foods />} />
+        </Route>
+
       </Route>
+      <Route path={ROUTE.NOT_FOUND} element={<NotFoundPage />} />
+
     </Routes>
   );
 }

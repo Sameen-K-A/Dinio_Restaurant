@@ -18,9 +18,9 @@ export function NavMain({ sidebarData }: NavMainProps) {
               <SidebarMenuItem key={item.title}>
                 <SidebarMenuButton
                   tooltip={item.title}
-                  className="cursor-pointer"
+                  className={`cursor-pointer  ${item.isAvailable ? "hover:bg-muted" : "bg-muted/20 cursor-not-allowed hover:bg-muted/20 text-muted-foreground hover:text-muted-foreground line-through"}`}
                   isActive={isActive}
-                  onClick={item.onClick}
+                  onClick={() => item.isAvailable && item.onClick()}
                 >
                   {item.icon && <item.icon />}
                   <span>{item.title}</span>
