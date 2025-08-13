@@ -1,5 +1,8 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { ROUTE } from "@/routes/router";
+
+// Common imports
+import Login from "@/pages/shared/Login";
 
 // Admin imports
 import Dashboard from "@/pages/admin/Dashboard";
@@ -22,6 +25,10 @@ import EmployeeLayout from "@/layouts/EmployeeLayout";
 export default function AppRoutes() {
   return (
     <Routes>
+
+      {/* Common routes */}
+      <Route path={ROUTE.LOGIN} element={<Login />} />
+      <Route path={ROUTE.DEFAULT} element={<Navigate to={ROUTE.LOGIN} replace />} />
 
       {/* Admin routes */}
       <Route element={<AdminLayout />}>
