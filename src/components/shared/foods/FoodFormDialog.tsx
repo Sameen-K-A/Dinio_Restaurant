@@ -33,7 +33,7 @@ export const FoodFormDialog: FC<FoodFormDialogProps> = ({ open, onOpenChange, mo
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl w-full">
+      <DialogContent className="bg-popover">
         <DialogHeader>
           <DialogTitle>{mode === "edit" ? "Edit Food Item" : "Add Food Item Manually"}</DialogTitle>
           <DialogDescription>
@@ -76,7 +76,8 @@ export const FoodFormDialog: FC<FoodFormDialogProps> = ({ open, onOpenChange, mo
                 id="food-name"
                 name="name"
                 value={form.name}
-                className="w-full border rounded px-3 py-2 bg-background text-foreground"
+                className="w-full border text-sm rounded-md px-3 py-2 text-foreground"
+                placeholder="Enter item name"
               />
             </div>
             <div>
@@ -86,7 +87,8 @@ export const FoodFormDialog: FC<FoodFormDialogProps> = ({ open, onOpenChange, mo
                 name="amount"
                 type="number"
                 value={form.amount}
-                className="w-full border rounded px-3 py-2 bg-background text-foreground"
+                className="w-full border text-sm rounded-md px-3 py-2 text-foreground"
+                placeholder="Eg: 250"
               />
             </div>
             <div>
@@ -96,14 +98,15 @@ export const FoodFormDialog: FC<FoodFormDialogProps> = ({ open, onOpenChange, mo
                 name="quantity"
                 type="number"
                 value={form.quantity}
-                className="w-full border rounded px-3 py-2 bg-background text-foreground"
+                className="w-full border text-sm rounded-md px-3 py-2 text-foreground"
+                placeholder="Eg: 10"
               />
             </div>
             <div className="flex gap-2 pt-2">
-              <Button type="button" variant="outline" className="flex-1" onClick={() => onOpenChange(false)}>
+              <Button type="button" variant="outline" className="flex-1 cursor-pointer" onClick={() => onOpenChange(false)}>
                 Close
               </Button>
-              <Button type="submit" className="flex-1">
+              <Button type="submit" className="flex-1 cursor-pointer">
                 Save
               </Button>
             </div>

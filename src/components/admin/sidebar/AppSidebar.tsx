@@ -1,6 +1,5 @@
 import { NavMain } from '@/components/admin/sidebar/NavMain'
-import { SubscriptionCard } from '@/components/admin/sidebar/SubscriptionCard'
-import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuItem } from '@/components/ui/sidebar'
+import { Sidebar, SidebarContent, SidebarHeader, SidebarMenu, SidebarMenuItem } from '@/components/ui/sidebar'
 import type { IsidebarItems } from "@/types/admin"
 
 type AppSidebarProps = React.ComponentProps<typeof Sidebar> & { sidebarData: IsidebarItems[] };
@@ -23,9 +22,6 @@ export function AppSidebar({ sidebarData, ...props }: AppSidebarProps) {
       <SidebarContent>
         <NavMain sidebarData={sidebarData} />
       </SidebarContent>
-      <SidebarFooter>
-        <SubscriptionCard />
-      </SidebarFooter>
     </Sidebar>
   )
 };

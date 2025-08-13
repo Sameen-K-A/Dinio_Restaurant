@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from "@/components/ui/dialog";
 import { FoodFormDialog } from "@/components/shared/foods/FoodFormDialog";
 
 export function AddFoodPopover() {
@@ -70,13 +70,24 @@ export function AddFoodPopover() {
 
       {/* CSV Upload Dialog */}
       <Dialog open={dialog === "csv"} onOpenChange={(v: boolean) => !v && closeDialog()}>
-        <DialogContent className="max-w-md w-full">
+        <DialogContent className="max-w-md w-full bg-popover">
           <DialogHeader>
             <DialogTitle>Upload Food Items via CSV</DialogTitle>
             <DialogDescription>Select a CSV file to bulk upload food items.</DialogDescription>
           </DialogHeader>
-          <span className="text-sm text-center text-muted-foreground">[CSV Upload UI Goes Here]</span>
-          <Button variant="outline" className="w-full mt-2" onClick={closeDialog}>Close</Button>
+          <div className="text-sm h-40 border border-dashed border-muted-foreground rounded-md text-center text-muted-foreground flex items-center justify-center">
+            [CSV Upload UI Goes Here]
+          </div>
+          <div className="flex gap-2 pt-2">
+            <DialogClose asChild>
+              <Button type="button" variant="outline" className="flex-1 cursor-pointer">
+                Close
+              </Button>
+            </DialogClose>
+            <Button type="submit" className="flex-1 cursor-pointer">
+              Save
+            </Button>
+          </div>
         </DialogContent>
       </Dialog>
     </>

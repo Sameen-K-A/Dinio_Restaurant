@@ -78,13 +78,13 @@
 
 .dark {
   --radius: 0.625rem;
-  --background: oklch(0.145 0 0);
+  --background: oklch(0% 0 0);
   --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
+  --card: oklch(0% 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
+  --primary: oklch(100% 0.00011 271.152);
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
@@ -146,4 +146,32 @@
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background: #ccc;
   border-radius: 50px;
+}
+
+@layer utilities {
+  @keyframes shake {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    25% {
+      transform: rotate(10deg);
+    }
+
+    50% {
+      transform: rotate(-10deg);
+    }
+
+    75% {
+      transform: rotate(10deg);
+    }
+
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  .animate-shake {
+    animation: shake 0.5s infinite;
+  }
 }
