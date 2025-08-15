@@ -175,3 +175,37 @@
     animation: shake 0.5s infinite;
   }
 }
+
+
+@keyframes dots {
+
+  0%,
+  20% {
+    content: '';
+  }
+
+  40% {
+    content: '.';
+  }
+
+  60% {
+    content: '..';
+  }
+
+  80%,
+  100% {
+    content: '...';
+  }
+}
+
+.animate-dots::after {
+  display: inline-block;
+  animation: dots 1s steps(4, end) infinite;
+  content: '';
+}
+
+.dots-placeholder {
+  display: inline-block;
+  width: 1.5em;
+  text-align: left;
+}
