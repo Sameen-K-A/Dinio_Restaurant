@@ -40,19 +40,23 @@ export default function WrapperLayout() {
 
     if (newOrderQueue.length === 1) {
       toast.custom((t) => (
-        <OrderAlert
-          order={newOrderQueue[0]}
-          toastId={t}
-          clearQueue={() => setNewOrderQueue([])}
-        />
+        <div className="mt-10 md:mt-0">
+          <OrderAlert
+            order={newOrderQueue[0]}
+            toastId={t}
+            clearQueue={() => setNewOrderQueue([])}
+          />
+        </div>
       ), { position: "top-center" });
     } else {
       toast.custom((t) => (
-        <SummaryAlert
-          orderLength={newOrderQueue.length}
-          toastId={t}
-          clearQueue={() => setNewOrderQueue([])}
-        />
+        <div className="mt-10 md:mt-0">
+          <SummaryAlert
+            orderLength={newOrderQueue.length}
+            toastId={t}
+            clearQueue={() => setNewOrderQueue([])}
+          />
+        </div>
       ), { position: "top-center" });
     }
   }, [newOrderQueue]);
