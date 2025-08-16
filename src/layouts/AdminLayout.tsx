@@ -19,16 +19,16 @@ export default function AdminLayout() {
     },
     {
       title: "Orders",
-      url: ROUTE.ADMIN.ORDERS,
+      url: ROUTE.SHARED.ORDERS,
       icon: IconListDetails,
-      onClick: () => navigate(ROUTE.ADMIN.ORDERS),
+      onClick: () => navigate(ROUTE.SHARED.ORDERS),
       isAvailable: true,
     },
     {
       title: "Food items",
-      url: ROUTE.ADMIN.FOODS,
+      url: ROUTE.SHARED.FOODS,
       icon: IconFishBone,
-      onClick: () => navigate(ROUTE.ADMIN.FOODS),
+      onClick: () => navigate(ROUTE.SHARED.FOODS),
       isAvailable: true,
     },
     {

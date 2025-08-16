@@ -28,21 +28,21 @@ export default function WrapperLayout() {
     playNotificationSound();
 
     if (newOrderQueue.length === 1) {
-      toast.custom(
-        (t) => <OrderAlert order={newOrderQueue[0]} toastId={t} />,
-        {
-          duration: Number.POSITIVE_INFINITY,
-          position: "top-center",
-        }
-      );
+      toast.custom((t) => (
+        <OrderAlert
+          order={newOrderQueue[0]}
+          toastId={t}
+          clearQueue={() => setNewOrderQueue([])}
+        />
+      ), { position: "top-center" });
     } else {
-      toast.custom(
-        () => <SummaryAlert orderLength={newOrderQueue.length} />,
-        {
-          duration: Number.POSITIVE_INFINITY,
-          position: "top-center",
-        }
-      );
+      toast.custom((t) => (
+        <SummaryAlert
+          orderLength={newOrderQueue.length}
+          toastId={t}
+          clearQueue={() => setNewOrderQueue([])}
+        />
+      ), { position: "top-center" });
     }
   }, [newOrderQueue]);
 

@@ -19,16 +19,16 @@ export default function EmployeeLayout() {
     },
     {
       title: "Orders",
-      url: ROUTE.EMPLOYEE.ORDERS,
+      url: ROUTE.SHARED.ORDERS,
       icon: IconListDetails,
-      onClick: () => navigate(ROUTE.EMPLOYEE.ORDERS),
+      onClick: () => navigate(ROUTE.SHARED.ORDERS),
       isAvailable: true,
     },
     {
       title: "Food items",
-      url: ROUTE.EMPLOYEE.FOODS,
+      url: ROUTE.SHARED.FOODS,
       icon: IconFishBone,
-      onClick: () => navigate(ROUTE.EMPLOYEE.FOODS),
+      onClick: () => navigate(ROUTE.SHARED.FOODS),
       isAvailable: true,
     },
   ];
