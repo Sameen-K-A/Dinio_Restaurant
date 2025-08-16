@@ -2,7 +2,7 @@ import WaiterCallPopup from "@/components/shared/WaiterCallPopup";
 import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import { toast } from "sonner";
-import { orders } from "@/constants/orders";
+// import { orders } from "@/constants/orders";
 import type { Order } from "@/types/admin";
 import { OrderAlert, SummaryAlert } from "@/components/shared/orders/OrderAlert";
 
@@ -14,24 +14,24 @@ export default function WrapperLayout() {
     new Audio("/sounds/orderAlert.wav").play();
   };
 
-  useEffect(() => {
-    const pushOrder = () => {
-      const randomOrder = orders[Math.floor(Math.random() * orders.length)];
-      setNewOrderQueue((prev) => [...prev, randomOrder]);
-    };
+  // useEffect(() => {
+  //   const pushOrder = () => {
+  //     const randomOrder = orders[Math.floor(Math.random() * orders.length)];
+  //     setNewOrderQueue((prev) => [...prev, randomOrder]);
+  //   };
 
-    const pushCall = () => {
-      const randomTable = Math.floor(Math.random() * 30) + 1;
-      setCallQueue((prev) => [...prev, randomTable]);
-    };
+  //   const pushCall = () => {
+  //     const randomTable = Math.floor(Math.random() * 30) + 1;
+  //     setCallQueue((prev) => [...prev, randomTable]);
+  //   };
 
-    const interval = setInterval(() => {
-      pushOrder();
-      pushCall();
-    }, 20000);
+  //   const interval = setInterval(() => {
+  //     pushOrder();
+  //     pushCall();
+  //   }, 20000);
 
-    return () => clearInterval(interval);
-  }, []);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   useEffect(() => {
     toast.dismiss();

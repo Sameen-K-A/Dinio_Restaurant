@@ -7,7 +7,7 @@ import Login from "@/pages/shared/Login";
 // Admin imports
 // import Dashboard from "@/pages/admin/Dashboard";
 import Employees from "@/pages/admin/Employees";
-// import Subscription from "@/pages/admin/Subscription";
+import Subscription from "@/pages/admin/Subscription";
 // import Accounts from "@/pages/admin/Accounts";
 
 // Employee imports
@@ -41,7 +41,7 @@ export default function AppRoutes() {
           <Route path={ROUTE.SHARED.ORDERS + "/:id"} element={<OrderDetails />} />
           <Route path={ROUTE.SHARED.FOODS} element={<Foods />} />
           <Route path={ROUTE.ADMIN.EMPLOYEES} element={<Employees />} />
-          {/* <Route path={ROUTE.ADMIN.SUBSCRIPTION} element={<Subscription />} /> */}
+          <Route path={ROUTE.ADMIN.SUBSCRIPTION} element={<Subscription />} />
           {/* <Route path={ROUTE.ADMIN.ACCOUNTS} element={<Accounts />} /> */}
         </Route>
 

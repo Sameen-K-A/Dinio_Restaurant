@@ -43,7 +43,7 @@ export default function AdminLayout() {
       url: ROUTE.ADMIN.SUBSCRIPTION,
       icon: IconCrown,
       onClick: () => navigate(ROUTE.ADMIN.SUBSCRIPTION),
-      isAvailable: false,
+      isAvailable: true,
     },
     {
       title: "Accounts",
