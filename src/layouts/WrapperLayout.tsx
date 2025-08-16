@@ -8,6 +8,7 @@ import { OrderAlert, SummaryAlert } from "@/components/shared/orders/OrderAlert"
 
 export default function WrapperLayout() {
   const [newOrderQueue, setNewOrderQueue] = useState<Order[]>([]);
+  const [callQueue, setCallQueue] = useState<number[]>([]);
 
   const playNotificationSound = () => {
     new Audio("/sounds/orderAlert.wav").play();
@@ -18,7 +19,17 @@ export default function WrapperLayout() {
       const randomOrder = orders[Math.floor(Math.random() * orders.length)];
       setNewOrderQueue((prev) => [...prev, randomOrder]);
     };
-    const interval = setInterval(pushOrder, 15000);
+
+    const pushCall = () => {
+      const randomTable = Math.floor(Math.random() * 30) + 1;
+      setCallQueue((prev) => [...prev, randomTable]);
+    };
+
+    const interval = setInterval(() => {
+      pushOrder();
+      pushCall();
+    }, 20000);
+
     return () => clearInterval(interval);
   }, []);
 
@@ -48,7 +59,7 @@ export default function WrapperLayout() {
 
   return (
     <>
-      <WaiterCallPopup tableNumber={15} show={true} />
+      <WaiterCallPopup calls={callQueue} clearCalls={() => setCallQueue([])} />
       <Outlet />
     </>
   );

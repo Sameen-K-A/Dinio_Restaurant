@@ -1,19 +1,25 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { orders } from '@/constants/orders';
 import { foods } from '@/constants/foods';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { IFood } from '@/types/admin';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, X } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { ROUTE } from '@/routes/router';
 
 export default function OrderDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
   const order = orders.find(o => o.orderId === id);
   const [items, setItems] = useState(order ? [...order.items] : []);
+
+  useEffect(() => {
+    const order = orders.find(o => o.orderId === id);
+    setItems(order ? [...order.items] : [])
+  }, [id])
 
   if (!order) return <div className="p-8">Order not found</div>;
 
@@ -39,7 +45,7 @@ export default function OrderDetails() {
           <button
             className="p-2 rounded-md cursor-pointer border bg-background hover:bg-muted transition-colors"
             aria-label="Back"
-            onClick={() => navigate(-1)}
+            onClick={() => navigate(ROUTE.SHARED.ORDERS)}
           >
             <ChevronLeft size={18} />
           </button>
