@@ -70,7 +70,7 @@ export function AddFoodPopover() {
 
       {/* CSV Upload Dialog */}
       <Dialog open={dialog === "csv"} onOpenChange={(v: boolean) => !v && closeDialog()}>
-        <DialogContent className="max-w-md w-full bg-popover">
+        <DialogContent className="bg-popover">
           <DialogHeader>
             <DialogTitle>Upload Food Items via CSV</DialogTitle>
             <DialogDescription>Select a CSV file to bulk upload food items.</DialogDescription>
