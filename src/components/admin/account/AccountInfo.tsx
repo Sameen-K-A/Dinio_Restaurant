@@ -3,12 +3,16 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import type { IRestaurant } from "@/types/admin"
 import { renderSubscriptionStatus } from "@/utils/renderSubscriptionStatus"
 import { Button } from "@/components/ui/button"
+import { useNavigate } from "react-router-dom"
+import { ROUTE } from "@/routes/router"
 
 interface IRestaurantDetailsInooProps {
   restaurant: IRestaurant
 };
 
 export default function RestaurantDetailsInfo({ restaurant }: IRestaurantDetailsInooProps) {
+  const navigate = useNavigate();
+
   return (
     <div className="space-y-4">
       <Card className="shadow-none p-4">
@@ -68,7 +72,10 @@ export default function RestaurantDetailsInfo({ restaurant }: IRestaurantDetails
         </CardHeader>
         <CardContent className="p-0 flex justify-between items-center">
           {renderSubscriptionStatus(restaurant.subscriptionExpiryDate)}
-          <Button className="flex items-center gap-1 cursor-pointer">
+          <Button
+            className="flex items-center gap-1 cursor-pointer"
+            onClick={() => navigate(ROUTE.ADMIN.SUBSCRIPTION)}
+          >
             <CreditCard className="h-4 w-4" />
             <span className="mb-0.5">View more details</span>
           </Button>

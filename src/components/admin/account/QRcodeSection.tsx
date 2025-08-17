@@ -1,8 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Download } from "lucide-react";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Download, MoreVertical, Trash2 } from "lucide-react";
 
-export default function QRcodeSection() {
+interface IQRcodeSectionProps {
+  numberOfTables: number;
+};
+
+export default function QRcodeSection({ numberOfTables }: IQRcodeSectionProps) {
   return (
     <Card className="shadow-none p-4">
       <CardHeader className="p-0">
@@ -19,7 +24,10 @@ export default function QRcodeSection() {
       </CardHeader>
       <CardContent className="p-0">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 max-h-[50dvh] overflow-y-auto custom-scrollbar">
-          {Array.from({ length: 10 }).map((_, i) => {
+          {Array.from({ length: numberOfTables }).map((_, i) => {
+            const tableNumber = i + 1;
+            const isLastTable = tableNumber === numberOfTables;
+
             return (
               <div key={i} className="flex flex-col items-center justify-center p-2 border rounded-lg">
                 <img
@@ -28,7 +36,28 @@ export default function QRcodeSection() {
                   className="w-full h-auto mb-2 aspect-square rounded-sm"
                   onError={(e) => e.currentTarget.src = "/placeholder/placeholder.svg"}
                 />
-                <p className="text-sm font-medium text-center">Table {i + 1}</p>
+                <div className="flex justify-between items-center w-full">
+                  <p className="text-sm font-medium text-center">Table {i + 1}</p>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <MoreVertical className="h-4 w-4 cursor-pointer" />
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end">
+                      <DropdownMenuItem>
+                        <Download className="mr-2 h-4 w-4" />
+                        Download
+                      </DropdownMenuItem>
+                      {isLastTable && (
+                        <DropdownMenuItem
+                          className="text-destructive focus:text-destructive"
+                        >
+                          <Trash2 className="mr-2 h-4 w-4 text-red-500" />
+                          Remove table
+                        </DropdownMenuItem>
+                      )}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </div>
               </div>
             )
           })}

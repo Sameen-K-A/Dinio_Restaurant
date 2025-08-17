@@ -20,7 +20,7 @@ export default function Account() {
 
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
         <RestaurantDetailsInfo restaurant={dummyAccountDetails} />
-        <QRcodeSection />
+        <QRcodeSection numberOfTables={dummyAccountDetails.numberOfTables} />
       </div>
     </>
   );
