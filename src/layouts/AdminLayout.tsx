@@ -19,16 +19,16 @@ export default function AdminLayout() {
     },
     {
       title: "Orders",
-      url: ROUTE.SHARED.ORDERS,
+      url: ROUTE.ADMIN.ORDERS,
       icon: IconListDetails,
-      onClick: () => navigate(ROUTE.SHARED.ORDERS),
+      onClick: () => navigate(ROUTE.ADMIN.ORDERS),
       isAvailable: true,
     },
     {
       title: "Food items",
-      url: ROUTE.SHARED.FOODS,
+      url: ROUTE.ADMIN.FOODS,
       icon: IconFishBone,
-      onClick: () => navigate(ROUTE.SHARED.FOODS),
+      onClick: () => navigate(ROUTE.ADMIN.FOODS),
       isAvailable: true,
     },
     {
@@ -50,7 +50,7 @@ export default function AdminLayout() {
       url: ROUTE.ADMIN.ACCOUNTS,
       icon: IconSettings,
       onClick: () => navigate(ROUTE.ADMIN.ACCOUNTS),
-      isAvailable: false,
+      isAvailable: true,
     },
   ];
 

@@ -45,7 +45,7 @@ export default function OrderDetails() {
           <button
             className="p-2 rounded-md cursor-pointer border bg-background hover:bg-muted transition-colors"
             aria-label="Back"
-            onClick={() => navigate(ROUTE.SHARED.ORDERS)}
+            onClick={() => navigate(ROUTE.ADMIN.ORDERS)}
           >
             <ChevronLeft size={18} />
           </button>

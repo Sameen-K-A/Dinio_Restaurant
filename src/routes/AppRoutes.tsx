@@ -8,7 +8,7 @@ import Login from "@/pages/shared/Login";
 // import Dashboard from "@/pages/admin/Dashboard";
 import Employees from "@/pages/admin/Employees";
 import Subscription from "@/pages/admin/Subscription";
-// import Accounts from "@/pages/admin/Accounts";
+import Accounts from "@/pages/admin/Accounts";
 
 // Employee imports
 // import EmployeeDashboard from "@/pages/employee/Dashboard";
@@ -37,20 +37,20 @@ export default function AppRoutes() {
         {/* Admin routes */}
         <Route element={<AdminLayout />}>
           {/* <Route path={ROUTE.ADMIN.DASHBOARD} element={<Dashboard />} /> */}
-          <Route path={ROUTE.SHARED.ORDERS} element={<Orders />} />
-          <Route path={ROUTE.SHARED.ORDERS + "/:id"} element={<OrderDetails />} />
-          <Route path={ROUTE.SHARED.FOODS} element={<Foods />} />
+          <Route path={ROUTE.ADMIN.ORDERS} element={<Orders />} />
+          <Route path={ROUTE.ADMIN.ORDERS + "/:id"} element={<OrderDetails />} />
+          <Route path={ROUTE.ADMIN.FOODS} element={<Foods />} />
           <Route path={ROUTE.ADMIN.EMPLOYEES} element={<Employees />} />
           <Route path={ROUTE.ADMIN.SUBSCRIPTION} element={<Subscription />} />
-          {/* <Route path={ROUTE.ADMIN.ACCOUNTS} element={<Accounts />} /> */}
+          <Route path={ROUTE.ADMIN.ACCOUNTS} element={<Accounts />} />
         </Route>
 
         {/* Employee routes */}
         <Route element={<EmployeeLayout />}>
           {/* <Route path={ROUTE.EMPLOYEE.DASHBOARD} element={<EmployeeDashboard />} /> */}
-          <Route path={ROUTE.SHARED.ORDERS} element={<Orders />} />
-          <Route path={ROUTE.SHARED.ORDERS + "/:id"} element={<OrderDetails />} />
-          <Route path={ROUTE.SHARED.FOODS} element={<Foods />} />
+          <Route path={ROUTE.EMPLOYEE.ORDERS} element={<Orders />} />
+          <Route path={ROUTE.EMPLOYEE.ORDERS + "/:id"} element={<OrderDetails />} />
+          <Route path={ROUTE.EMPLOYEE.FOODS} element={<Foods />} />
         </Route>
 
       </Route>

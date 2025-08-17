@@ -6,13 +6,13 @@ export const ROUTE = {
     DASHBOARD: "/dashboard",
     EMPLOYEES: "/employees",
     SUBSCRIPTION: "/subscription",
-    ACCOUNTS: "/accounts"
+    ACCOUNTS: "/accounts",
+    ORDERS: "/orders",
+    FOODS: "/foods"
   },
   EMPLOYEE: {
     DASHBOARD: "/employee/dashboard",
+    ORDERS: "/employee/orders",
+    FOODS: "/employee/foods"
   },
-  SHARED: {
-    ORDERS: "/orders",
-    FOODS: "/foods"
-  }
 };

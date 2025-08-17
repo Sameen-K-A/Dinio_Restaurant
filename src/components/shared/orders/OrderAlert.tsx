@@ -53,7 +53,7 @@ export function OrderAlert({ order, toastId, clearQueue }: OrderToastProps) {
 
         <Button variant="outline" size="sm" onClick={() => {
           clearQueue();
-          navigate(`${ROUTE.SHARED.ORDERS}/${order.orderId}`);
+          navigate(`${ROUTE.ADMIN.ORDERS}/${order.orderId}`);
         }} className="text-xs cursor-pointer">
           View Details
         </Button>
@@ -91,7 +91,7 @@ export function SummaryAlert({ orderLength, toastId, clearQueue }: ISummuryAlert
         className="text-xs rounded-full cursor-pointer whitespace-nowrap"
         onClick={() => {
           clearQueue();
-          navigate(`${ROUTE.SHARED.ORDERS}`);
+          navigate(`${ROUTE.ADMIN.ORDERS}`);
         }}
       >
         View Orders
