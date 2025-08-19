@@ -31,7 +31,7 @@ export default function QRcodeSection({ numberOfTables }: IQRcodeSectionProps) {
             return (
               <div key={i} className="flex flex-col items-center justify-center p-2 border rounded-lg">
                 <img
-                  src={`qr code url from s3 bucket`}
+                  src="/images/dinioInstaQR.png"
                   alt={`QR Code for Table ${i + 1}`}
                   className="w-full h-auto mb-2 aspect-square rounded-sm"
                   onError={(e) => e.currentTarget.src = "/placeholder/placeholder.svg"}

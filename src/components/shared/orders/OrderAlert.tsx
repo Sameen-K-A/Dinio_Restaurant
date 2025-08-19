@@ -35,7 +35,7 @@ export function OrderAlert({ order, toastId, clearQueue }: OrderToastProps) {
             </Avatar>
           ) : (
             <div className="flex -space-x-2">
-              <Avatar className="h-10 w-10 rounded-sm ring-2 ring-popover grayscale">
+              <Avatar className="h-10 w-10 rounded-sm ring-2 ring-popover">
                 <AvatarImage src={order.items[0].image || "/placeholder.svg"} alt={order.items[0].name} />
                 <AvatarFallback className="rounded-sm">{order.items[0].name.charAt(0)}</AvatarFallback>
               </Avatar>

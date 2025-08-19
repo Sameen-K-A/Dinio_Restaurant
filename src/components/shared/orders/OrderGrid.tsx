@@ -48,7 +48,7 @@ export function OrderGrid({ orders }: OrderGridProps) {
           </div>
 
           <button
-            className="mt-auto w-full py-2 rounded-lg bg-primary text-primary-foreground font-bold transition-colors flex items-center justify-center gap-2 cursor-pointer text-base hover:scale-[1.03]"
+            className="mt-auto w-full py-2 rounded-lg bg-primary text-primary-foreground font-bold flex items-center justify-center gap-2 cursor-pointer text-base transition-all hover:scale-[1.03]"
           >
             <span>Next</span>
             <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-primary-foreground"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
