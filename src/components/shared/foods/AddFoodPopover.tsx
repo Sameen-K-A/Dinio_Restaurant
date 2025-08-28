@@ -30,11 +30,11 @@ export function AddFoodPopover() {
             + Add Items
           </Button>
         </PopoverTrigger>
-        <PopoverContent align="end" className="p-0 w-[370px] max-w-full border shadow-2xl rounded-2xl border-muted-foreground/50">
-          <div className="bg-muted/10 rounded-2xl p-6">
+        <PopoverContent align="end" className="p-0 w-[23rem] sm:w-md max-w-full border shadow-2xl rounded-2xl border-muted-foreground/50">
+          <div className="bg-muted/10 rounded-2xl p-4 sm:p-6">
             <h4 className="text-lg font-bold mb-1 text-center text-foreground">Add New Items</h4>
             <p className="text-sm text-muted-foreground mb-5 text-center">Choose how you want to add new food items to your menu.</p>
-            <div className="flex gap-3 items-stretch">
+            <div className="flex gap-1 sm:gap-3 items-stretch">
               <button
                 className="flex-1 flex flex-col items-center bg-muted hover:bg-muted/80 rounded-xl p-5 transition cursor-pointer border border-muted-foreground/10 group"
                 type="button"

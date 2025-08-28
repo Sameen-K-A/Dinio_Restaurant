@@ -15,7 +15,7 @@ interface CategoriesTabsProps {
 
 export function CategoriesTabs({ categories, active, setActive, view, setView }: CategoriesTabsProps) {
   return (
-    <div className="flex w-full items-center justify-between mb-4 gap-2">
+    <div className="flex w-full items-center justify-between mb-2 gap-2">
       <div className="flex-1 min-w-0">
         <div className="flex gap-2 overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-thumb-muted/40 scrollbar-track-transparent pr-2">
           {categories.map((cat) => (

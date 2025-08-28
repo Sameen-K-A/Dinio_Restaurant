@@ -3,52 +3,47 @@ import { Header } from "@/components/admin/sidebar/Header";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { ROUTE } from "@/routes/router";
 import type { IsidebarItems } from "@/types/admin";
-import { IconChefHat, IconCrown, IconFishBone, IconListDetails, IconSettings } from "@tabler/icons-react";
+import { IoFastFood, IoSettingsSharp } from "react-icons/io5";
+import { FaCrown, FaUserTie } from "react-icons/fa";
+import { IoMdCart } from "react-icons/io";
 import { Outlet, useNavigate } from "react-router-dom";
 
 export default function AdminLayout() {
 
   const navigate = useNavigate();
   const sidebarData: IsidebarItems[] = [
-    // {
-    //   title: "Dashboard",
-    //   url: ROUTE.ADMIN.DASHBOARD,
-    //   icon: IconDashboard,
-    //   onClick: () => navigate(ROUTE.ADMIN.DASHBOARD),
-    //   isAvailable: false,
-    // },
     {
       title: "Orders",
       url: ROUTE.ADMIN.ORDERS,
-      icon: IconListDetails,
+      icon: IoMdCart,
       onClick: () => navigate(ROUTE.ADMIN.ORDERS),
       isAvailable: true,
     },
     {
       title: "Food items",
       url: ROUTE.ADMIN.FOODS,
-      icon: IconFishBone,
+      icon: IoFastFood,
       onClick: () => navigate(ROUTE.ADMIN.FOODS),
       isAvailable: true,
     },
     {
       title: "Employees",
       url: ROUTE.ADMIN.EMPLOYEES,
-      icon: IconChefHat,
+      icon: FaUserTie,
       onClick: () => navigate(ROUTE.ADMIN.EMPLOYEES),
       isAvailable: true,
     },
     {
       title: "Subscription",
       url: ROUTE.ADMIN.SUBSCRIPTION,
-      icon: IconCrown,
+      icon: FaCrown,
       onClick: () => navigate(ROUTE.ADMIN.SUBSCRIPTION),
       isAvailable: true,
     },
     {
       title: "Accounts",
       url: ROUTE.ADMIN.ACCOUNTS,
-      icon: IconSettings,
+      icon: IoSettingsSharp,
       onClick: () => navigate(ROUTE.ADMIN.ACCOUNTS),
       isAvailable: true,
     },
