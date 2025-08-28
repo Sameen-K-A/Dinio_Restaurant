@@ -1,20 +1,16 @@
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
+import { AlertDialog, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
-import { ROUTE } from "@/routes/router";
 import type { Order } from "@/types/admin"
-import { X } from "lucide-react"
-import { MdFastfood } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
-import { toast } from "sonner";
 
-interface OrderToastProps {
-  order: Order;
-  toastId: string | number;
-  clearQueue: () => void;
+interface OrderAlertDialogProps {
+  order: Order
+  isOpen: boolean
+  onClose: () => void
+  onViewDetails: () => void
 }
 
-export function OrderAlert({ order, toastId, clearQueue }: OrderToastProps) {
-  const navigate = useNavigate();
+export function OrderAlertDialog({ order, isOpen, onClose, onViewDetails }: OrderAlertDialogProps) {
   const getDisplayText = () => {
     if (order.items.length === 1) {
       return order.items[0].name
@@ -23,92 +19,93 @@ export function OrderAlert({ order, toastId, clearQueue }: OrderToastProps) {
   }
 
   return (
-    <div className="bg-popover relative border border-border rounded-lg shadow-lg p-2 px-3 min-w-[320px]">
-      <ClearButton toastId={toastId} />
+    <AlertDialog open={isOpen} onOpenChange={onClose}>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle className="text-xl font-semibold text-center">New Order Received!</AlertDialogTitle>
+        </AlertDialogHeader>
 
-      <div className="flex items-center gap-1">
-        <div className="flex-shrink-0">
-          {order.items.length === 1 ? (
-            <Avatar className="h-10 w-10 rounded-sm">
-              <AvatarImage src={order.items[0].image || "/placeholder.svg"} alt={order.items[0].name} />
-              <AvatarFallback className="rounded-sm">{order.items[0].name.charAt(0)}</AvatarFallback>
-            </Avatar>
-          ) : (
-            <div className="flex -space-x-2">
-              <Avatar className="h-10 w-10 rounded-sm ring-2 ring-popover">
-                <AvatarImage src={order.items[0].image || "/placeholder.svg"} alt={order.items[0].name} />
-                <AvatarFallback className="rounded-sm">{order.items[0].name.charAt(0)}</AvatarFallback>
-              </Avatar>
-              <div className="h-10 w-10 rounded-sm bg-muted ring-2 ring-popover flex items-center justify-center">
-                <span className="text-xs font-medium text-muted-foreground">+{order.items.length - 1}</span>
-              </div>
+        <div className="py-4">
+          <div className="flex items-center gap-4 p-4 bg-muted/50 rounded-lg">
+            <div className="flex-shrink-0">
+              {order.items.length === 1 ? (
+                <Avatar className="h-12 w-12 rounded-lg">
+                  <AvatarImage src={order.items[0].image || "/placeholder.svg"} alt={order.items[0].name} />
+                  <AvatarFallback className="rounded-lg text-lg">{order.items[0].name.charAt(0)}</AvatarFallback>
+                </Avatar>
+              ) : (
+                <div className="flex -space-x-2">
+                  <Avatar className="h-12 w-12 rounded-lg ring-2 ring-popover">
+                    <AvatarImage src={order.items[0].image || "/placeholder.svg"} alt={order.items[0].name} />
+                    <AvatarFallback className="rounded-lg">{order.items[0].name.charAt(0)}</AvatarFallback>
+                  </Avatar>
+                  <div className="h-12 w-12 rounded-lg bg-muted ring-2 ring-popover flex items-center justify-center">
+                    <span className="text-sm font-medium text-muted-foreground">+{order.items.length - 1}</span>
+                  </div>
+                </div>
+              )}
             </div>
-          )}
+
+            <div className="flex-1 min-w-0">
+              <p className="font-semibold text-foreground text-lg truncate">{getDisplayText()}</p>
+              <p className="text-sm text-muted-foreground">Table No: {order.tableNo}</p>
+            </div>
+          </div>
         </div>
 
-        <div className="flex-1 min-w-0">
-          <p className="font-medium text-foreground truncate line-clamp-1">{getDisplayText()}</p>
-          <p className="text-sm text-muted-foreground">Table No: {order.tableNo}</p>
-        </div>
-
-        <Button variant="outline" size="sm" onClick={() => {
-          clearQueue();
-          navigate(`${ROUTE.ADMIN.ORDERS}/${order.orderId}`);
-        }} className="text-xs cursor-pointer">
-          View Details
-        </Button>
-      </div>
-    </div >
+        <AlertDialogFooter className="flex flex-col gap-2 sm:flex-col">
+          <Button
+            className="cursor-pointer w-full"
+            onClick={onViewDetails}
+          >
+            View order details
+          </Button>
+          <a className="cursor-pointer w-full text-center underline underline-offset-2 text-sm"
+            onClick={onClose}>Skip for this time
+          </a>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
   )
 }
 
-interface ISummuryAlertProps {
-  orderLength: number;
-  toastId: string | number;
-  clearQueue: () => void;
-};
-
-export function SummaryAlert({ orderLength, toastId, clearQueue }: ISummuryAlertProps) {
-  const navigate = useNavigate();
-
-  return (
-    <div className="relative bg-popover border border-border rounded-xl shadow-md p-2 px-3 min-w-[320px] flex items-center gap-3">
-      <ClearButton toastId={toastId} />
-      <div className="bg-primary/10 p-3 rounded-md text-primary">
-        <MdFastfood size={25} />
-      </div>
-
-      <p className="text-sm font-medium flex-1">
-        {`${orderLength}+ orders waiting`}
-        <span className="dots-placeholder">
-          <span className="animate-dots"></span>
-        </span>
-      </p>
-
-      <Button
-        variant="outline"
-        size="sm"
-        className="text-xs rounded-full cursor-pointer whitespace-nowrap"
-        onClick={() => {
-          clearQueue();
-          navigate(`${ROUTE.ADMIN.ORDERS}`);
-        }}
-      >
-        View Orders
-      </Button>
-    </div>
-  );
+interface SummaryAlertDialogProps {
+  orderCount: number
+  isOpen: boolean
+  onClose: () => void
+  onViewDetails: () => void
 }
 
-export function ClearButton({ toastId }: { toastId: string | number }) {
+export function SummaryAlertDialog({ orderCount, isOpen, onClose, onViewDetails }: SummaryAlertDialogProps) {
   return (
-    <Button
-      variant="default"
-      className="h-4 w-4 cursor-pointer absolute -right-1 -top-1"
-      size="icon"
-      onClick={() => toast.dismiss(toastId)}
-    >
-      <X className="h-3 w-3" />
-    </Button>
+    <AlertDialog open={isOpen} onOpenChange={onClose}>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle className="text-xl font-semibold text-center">Multiple New Orders!</AlertDialogTitle>
+        </AlertDialogHeader>
+
+        <div className="py-4">
+          <div className="text-center p-6 bg-muted/50 rounded-lg">
+            <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+              <span className="text-2xl font-bold text-primary">{orderCount}</span>
+            </div>
+            <p className="text-lg font-medium text-foreground mb-2">New Orders Waiting</p>
+            <p className="text-sm text-muted-foreground">{orderCount}+ more orders are waiting in the queue.</p>
+          </div>
+        </div>
+
+        <AlertDialogFooter className="flex flex-col gap-2 sm:flex-col">
+          <Button
+            className="cursor-pointer w-full"
+            onClick={onViewDetails}
+          >
+            View all orders
+          </Button>
+          <a className="cursor-pointer w-full text-center underline underline-offset-2 text-sm"
+            onClick={onClose}>Skip for this time
+          </a>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
   )
 };
