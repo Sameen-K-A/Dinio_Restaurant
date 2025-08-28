@@ -7,10 +7,11 @@ interface OrderAlertDialogProps {
   order: Order
   isOpen: boolean
   onClose: () => void
+  onSkip: () => void
   onViewDetails: () => void
 }
 
-export function OrderAlertDialog({ order, isOpen, onClose, onViewDetails }: OrderAlertDialogProps) {
+export function OrderAlertDialog({ order, isOpen, onClose, onSkip, onViewDetails }: OrderAlertDialogProps) {
   const getDisplayText = () => {
     if (order.items.length === 1) {
       return order.items[0].name
@@ -61,7 +62,7 @@ export function OrderAlertDialog({ order, isOpen, onClose, onViewDetails }: Orde
             View order details
           </Button>
           <a className="cursor-pointer w-full text-center underline underline-offset-2 text-sm"
-            onClick={onClose}>Skip for this time
+            onClick={onSkip}>Skip for this time
           </a>
         </AlertDialogFooter>
       </AlertDialogContent>
@@ -73,10 +74,11 @@ interface SummaryAlertDialogProps {
   orderCount: number
   isOpen: boolean
   onClose: () => void
+  onSkip: () => void
   onViewDetails: () => void
 }
 
-export function SummaryAlertDialog({ orderCount, isOpen, onClose, onViewDetails }: SummaryAlertDialogProps) {
+export function SummaryAlertDialog({ orderCount, isOpen, onClose, onSkip, onViewDetails }: SummaryAlertDialogProps) {
   return (
     <AlertDialog open={isOpen} onOpenChange={onClose}>
       <AlertDialogContent>
@@ -102,7 +104,7 @@ export function SummaryAlertDialog({ orderCount, isOpen, onClose, onViewDetails 
             View all orders
           </Button>
           <a className="cursor-pointer w-full text-center underline underline-offset-2 text-sm"
-            onClick={onClose}>Skip for this time
+            onClick={onSkip}>Skip for this time
           </a>
         </AlertDialogFooter>
       </AlertDialogContent>

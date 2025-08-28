@@ -50,6 +50,10 @@ export default function WrapperLayout() {
     setNewOrderQueue([])
   }
 
+  const handleSkipOrdersAlert = () => {
+    setShowOrderAlert(false)
+  }
+
   return (
     <>
       <WaiterCallPopup calls={callQueue} clearCalls={() => setCallQueue([])} />
@@ -59,7 +63,11 @@ export default function WrapperLayout() {
           order={newOrderQueue[0]}
           isOpen={showOrderAlert}
           onClose={handleCloseOrdersAlert}
-          onViewDetails={() => navigate(`${ROUTE.ADMIN.ORDERS}/${newOrderQueue[0].orderId}`)}
+          onSkip={handleSkipOrdersAlert}
+          onViewDetails={() => {
+            navigate(`${ROUTE.ADMIN.ORDERS}/${newOrderQueue[0].orderId}`);
+            setNewOrderQueue([])
+          }}
         />
       )}
 
@@ -68,7 +76,11 @@ export default function WrapperLayout() {
           orderCount={newOrderQueue.length}
           isOpen={showOrderAlert}
           onClose={handleCloseOrdersAlert}
-          onViewDetails={() => navigate(`${ROUTE.ADMIN.ORDERS}`)}
+          onSkip={handleSkipOrdersAlert}
+          onViewDetails={() => {
+            navigate(`${ROUTE.ADMIN.ORDERS}`);
+            setNewOrderQueue([])
+          }}
         />
       )}
 
