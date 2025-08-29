@@ -22,14 +22,14 @@ export default function WrapperLayout() {
       setNewOrderQueue((prev) => [...prev, randomOrder]);
     };
 
-    const pushCall = () => {
-      const randomTable = Math.floor(Math.random() * 30) + 1;
-      setCallQueue((prev) => [...prev, randomTable]);
-    };
+    // const pushCall = () => {
+    //   const randomTable = Math.floor(Math.random() * 30) + 1;
+    //   setCallQueue((prev) => [...prev, randomTable]);
+    // };
 
     const interval = setInterval(() => {
       pushOrder();
-      pushCall();
+      // pushCall();
     }, 20000);
 
     return () => clearInterval(interval);
