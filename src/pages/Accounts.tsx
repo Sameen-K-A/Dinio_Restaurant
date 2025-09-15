@@ -1,5 +1,5 @@
-import RestaurantDetailsInfo from "@/components/admin/account/AccountInfo";
-import QRcodeSection from "@/components/admin/account/QRcodeSection";
+import RestaurantDetailsInfo from "@/components/account/AccountInfo";
+import QRcodeSection from "@/components/account/QRcodeSection";
 
 export default function Account() {
   const dummyAccountDetails = {

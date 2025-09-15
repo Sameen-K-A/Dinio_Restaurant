@@ -1,8 +1,8 @@
-import { NavMain } from '@/components/employee/sidebar/NavMain'
+import { NavMain } from '@/components/sidebar/NavMain'
 import { Sidebar, SidebarContent, SidebarHeader, SidebarMenu, SidebarMenuItem } from '@/components/ui/sidebar'
-import type { InavbarItems } from "@/types/employee"
+import type { IsidebarItems } from "@/types/general"
 
-type AppSidebarProps = React.ComponentProps<typeof Sidebar> & { sidebarData: InavbarItems[] };
+type AppSidebarProps = React.ComponentProps<typeof Sidebar> & { sidebarData: IsidebarItems[] };
 
 export function AppSidebar({ sidebarData, ...props }: AppSidebarProps) {
   return (

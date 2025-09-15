@@ -1,9 +1,9 @@
 import { SidebarGroup, SidebarGroupContent, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar'
-import type { InavbarItems } from "@/types/employee"
+import type { IsidebarItems } from "@/types/general"
 import { useLocation } from 'react-router-dom';
 
 interface NavMainProps {
-  sidebarData: InavbarItems[];
+  sidebarData: IsidebarItems[];
 }
 
 export function NavMain({ sidebarData }: NavMainProps) {

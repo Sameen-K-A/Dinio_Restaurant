@@ -1,11 +1,11 @@
 import { SidebarTrigger } from '@/components/ui/sidebar'
 import { MobileSheet } from './MobileSheet'
 import Logo from '/svgs/logo.svg'
-import type { InavbarItems } from '@/types/employee';
+import type { IsidebarItems } from '@/types/general';
 import { ThemeToggleButton } from '@/components/ui/ThemeToggleButton';
 
 interface HeaderProps {
-  sidebarData: InavbarItems[];
+  sidebarData: IsidebarItems[];
 };
 
 export function Header({ sidebarData }: HeaderProps) {

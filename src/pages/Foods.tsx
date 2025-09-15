@@ -1,20 +1,20 @@
-import { EmployeeTable } from "@/components/admin/employees/EmployeeTable";
+import FoodsTable from "@/components/foods/FoodTable";
 import { Button } from "@/components/ui/button";
-import { employees } from "@/constants/employees";
+import { foods } from "@/constants/foods";
 
-export default function Employees() {
+export default function Foods() {
   return (
     <>
       <div className="flex items-center justify-between pb-4">
-        <h3 className="text-xl md:text-2xl font-bold">Employees</h3>
+        <h3 className="text-xl md:text-2xl font-bold">Foods Items</h3>
         <Button
           variant="default"
           className="font-semibold px-6 py-2 rounded-lg transition-all duration-200 bg-accent-foreground text-accent cursor-pointer border-0"
         >
-          + Add Employee
+          + Add Items
         </Button>
       </div>
-      <EmployeeTable employees={employees} />
+      <FoodsTable foods={foods} />
     </>
   );
 }

@@ -1,6 +1,6 @@
 import { Building2, CreditCard, MapPin, Phone, UserRound, Utensils } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import type { IRestaurant } from "@/types/admin"
+import type { IRestaurant } from "@/types/general"
 import { renderSubscriptionStatus } from "@/utils/renderSubscriptionStatus"
 import { Button } from "@/components/ui/button"
 import { useNavigate } from "react-router-dom"
@@ -74,7 +74,7 @@ export default function RestaurantDetailsInfo({ restaurant }: IRestaurantDetails
           {renderSubscriptionStatus(restaurant.subscriptionExpiryDate)}
           <Button
             className="flex items-center gap-1 cursor-pointer"
-            onClick={() => navigate(ROUTE.ADMIN.SUBSCRIPTION)}
+            onClick={() => navigate(ROUTE.SUBSCRIPTION)}
           >
             <CreditCard className="h-4 w-4" />
             <span className="mb-0.5">View more details</span>

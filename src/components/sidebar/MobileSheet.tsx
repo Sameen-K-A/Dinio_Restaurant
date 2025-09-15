@@ -1,5 +1,5 @@
 import { Sheet, SheetContent, SheetHeader, SheetClose, SheetTrigger } from '@/components/ui/sheet';
-import type { IsidebarItems } from '@/types/admin';
+import type { IsidebarItems } from '@/types/general';
 import { ChevronLeft, Menu } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 import * as React from 'react';

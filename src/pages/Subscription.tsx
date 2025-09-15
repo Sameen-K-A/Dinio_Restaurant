@@ -1,4 +1,4 @@
-import { SubscriptionInfo } from "@/components/admin/subscription/SubscriptionInfo";
+import { SubscriptionInfo } from "@/components/subscription/SubscriptionInfo";
 
 export default function Subscription() {
   return (
