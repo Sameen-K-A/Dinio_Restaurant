@@ -4,7 +4,6 @@ import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { ROUTE } from "@/routes/router";
 import type { IsidebarItems } from "@/types/general";
 import { IoFastFood, IoSettingsSharp } from "react-icons/io5";
-import { FaCrown } from "react-icons/fa";
 import { Outlet, useNavigate } from "react-router-dom";
 
 export default function GeneralLayout() {
@@ -16,13 +15,6 @@ export default function GeneralLayout() {
       url: ROUTE.FOODS,
       icon: IoFastFood,
       onClick: () => navigate(ROUTE.FOODS),
-      isAvailable: true,
-    },
-    {
-      title: "Subscription",
-      url: ROUTE.SUBSCRIPTION,
-      icon: FaCrown,
-      onClick: () => navigate(ROUTE.SUBSCRIPTION),
       isAvailable: true,
     },
     {

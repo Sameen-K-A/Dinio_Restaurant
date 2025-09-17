@@ -16,7 +16,7 @@ const FoodsTable = ({ foods }: IFoodsTableProps) => {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="text-center px-8">SL</TableHead>
+            <TableHead className="text-center px-4">SL</TableHead>
             <TableHead className="text-left max-w-xs px-8">Food</TableHead>
             <TableHead className="text-center px-8">Category</TableHead>
             <TableHead className="text-center px-8">Amount</TableHead>
@@ -40,7 +40,7 @@ const FoodsTable = ({ foods }: IFoodsTableProps) => {
           {foods.map((food, index) => (
             <TableRow key={food.foodId}>
 
-              <TableCell className="text-center font-medium px-8">
+              <TableCell className="text-center font-medium px-4">
                 {index + 1}
               </TableCell>
 

@@ -1,6 +1,5 @@
 import { Badge } from "@/components/ui/badge"
 import { PaymentHistoryTable } from "./PaymentHistoryTable"
-import SubscriptionPlans from "./SubscriptionPlans"
 
 const subscriptionData = {
   isActive: true,
@@ -24,7 +23,6 @@ export function SubscriptionInfo() {
                   Subscription ends at: {new Date(subscriptionData.endDate).toLocaleDateString()}
                 </p>
               </div>
-              <SubscriptionPlans />
             </div>
           </div>
         </div>
