@@ -23,7 +23,7 @@ export default function AccountInfo() {
 
           <Button className="flex items-center gap-1 cursor-pointer">
             <Download className="h-4 w-4" />
-            Download All
+            Download QR code
           </Button>
         </div>
 

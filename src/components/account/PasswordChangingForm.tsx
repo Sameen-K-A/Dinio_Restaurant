@@ -4,7 +4,7 @@ import { Label } from "@/components/ui/label"
 
 export function PasswordChangeForm() {
   return (
-    <div className="space-y-4">
+    <div className="space-y-2">
       <h3 className="font-semibold">Change Password</h3>
 
       <div className="space-y-4 p-4 border rounded-lg">

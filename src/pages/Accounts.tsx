@@ -1,5 +1,6 @@
 import AccountInfo from "@/components/account/AccountInfo";
 import { PasswordChangeForm } from "@/components/account/PasswordChangingForm";
+import { PaymentHistoryTable } from "@/components/account/PaymentHistoryTable";
 import { SubscriptionInfo } from "@/components/account/SubscriptionInfo";
 
 export default function Account() {
@@ -19,7 +20,14 @@ export default function Account() {
     <div className="space-y-6">
       <AccountInfo />
       <SubscriptionInfo />
-      <PasswordChangeForm />
+      <div className="flex flex-col md:flex-row items-start gap-6">
+        <div className="w-full md:w-1/2">
+          <PaymentHistoryTable />
+        </div>
+        <div className="w-full md:w-1/2">
+          <PasswordChangeForm />
+        </div>
+      </div>
     </div>
   );
 };
