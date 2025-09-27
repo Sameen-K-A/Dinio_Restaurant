@@ -4,5 +4,6 @@ export const ROUTE = {
   LOGIN: "/login",
   ACCOUNTS: "/accounts",
   FOODS: "/foods",
+  FOOD_DETAILS: (id: string) => `/foods/${id}`,
   CATEGORIES: "/categories"
 };

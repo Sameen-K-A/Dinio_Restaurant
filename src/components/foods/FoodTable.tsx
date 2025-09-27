@@ -5,12 +5,16 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { IFood } from "@/types/general";
+import { useNavigate } from "react-router-dom";
+import { ROUTE } from "@/routes/router";
 
 interface IFoodsTableProps {
   foods: IFood[];
+};
 
-}
 const FoodsTable = ({ foods }: IFoodsTableProps) => {
+  const navigate = useNavigate();
+
   return (
     <div className="w-full overflow-x-auto">
       <Table>
@@ -21,15 +25,14 @@ const FoodsTable = ({ foods }: IFoodsTableProps) => {
             <TableHead className="text-center px-8">Category</TableHead>
             <TableHead className="text-center px-8">Amount</TableHead>
             <TableHead className="text-center flex items-center justify-center gap-1">
-              Visible
+              Special
               <Popover>
                 <PopoverTrigger asChild>
                   <CircleHelp className="cursor-pointer pt-0.5" size={13} />
                 </PopoverTrigger>
                 <PopoverContent className="w-64 text-sm">
-                  If <b>Visible</b> is enabled, this food item will appear in the
-                  user's menu list. If not, it will stay hidden but remain in the
-                  database.
+                  If <b>Special</b> is enabled, this food item will be marked as a <b>special dish</b> and shown to users with a <span className="badge">Special</span> badge.
+                  If not, it will appear as a regular item in the menu.
                 </PopoverContent>
               </Popover>
             </TableHead>
@@ -38,7 +41,7 @@ const FoodsTable = ({ foods }: IFoodsTableProps) => {
         </TableHeader>
         <TableBody>
           {foods.map((food, index) => (
-            <TableRow key={food.foodId}>
+            <TableRow key={food.foodId} onClick={() => navigate(ROUTE.FOOD_DETAILS(food.foodId))} className="hover:cursor-pointer">
 
               <TableCell className="text-center font-medium px-4">
                 {index + 1}
@@ -63,10 +66,8 @@ const FoodsTable = ({ foods }: IFoodsTableProps) => {
               <TableCell className="text-center px-8">{food.category.name}</TableCell>
               <TableCell className="text-center px-8">₹{food.amount.toFixed(2)}</TableCell>
               <TableCell className="text-center px-8">
-                {food.isVisible ? (
-                  <Badge variant="outline" className="bg-green-500/10 border border-green-500 px-3 text-green-500">Yes</Badge>
-                ) : (
-                  <Badge variant="outline" className="bg-red-500/10 border border-red-500 px-3 text-red-500">No</Badge>
+                {food.isSpecial && (
+                  <Badge variant="destructive">Speical</Badge>
                 )}
               </TableCell>
               <TableCell className="text-center px-8">

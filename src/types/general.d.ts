@@ -15,10 +15,17 @@ export interface IFood {
    foodId: string;
    image: string;
    name: string;
+   isSpecial: boolean;
    description: string;
    category: ICategory;
    amount: number;
-   isVisible: boolean;
+   reviews: IReview[];
+};
+
+export interface IReview {
+   name: string;
+   rating: number;
+   review: string;
 };
 
 export interface IRestaurant {
