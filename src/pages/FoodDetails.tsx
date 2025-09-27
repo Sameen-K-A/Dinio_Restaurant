@@ -18,7 +18,7 @@ export default function FoodDetails() {
   const ratingDistribution = getRatingDistribution(food.reviews);
 
   return (
-    <div className="p-4 md:p-8">
+    <div className="md:p-4">
       <div className="space-y-6">
         <div className="relative max-w-xs mx-auto md:mx-0">
           <img
