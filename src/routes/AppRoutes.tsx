@@ -6,6 +6,7 @@ import Foods from "@/pages/Foods";
 import Accounts from "@/pages/Accounts";
 import NotFoundPage from "@/components/others/Error404";
 import GeneralLayout from "@/layouts/GeneralLayout";
+import Categories from "@/pages/Categories";
 
 export default function AppRoutes() {
   return (
@@ -16,6 +17,7 @@ export default function AppRoutes() {
       <Route element={<GeneralLayout />}>
         <Route path={ROUTE.FOODS} element={<Foods />} />
         <Route path={ROUTE.ACCOUNTS} element={<Accounts />} />
+        <Route path={ROUTE.CATEGORIES} element={<Categories />} />
       </Route>
 
       <Route path={ROUTE.NOT_FOUND} element={<NotFoundPage />} />

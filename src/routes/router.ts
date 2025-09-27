@@ -3,5 +3,6 @@ export const ROUTE = {
   DEFAULT: "/",
   LOGIN: "/login",
   ACCOUNTS: "/accounts",
-  FOODS: "/foods"
+  FOODS: "/foods",
+  CATEGORIES: "/categories"
 };

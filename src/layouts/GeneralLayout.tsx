@@ -4,6 +4,7 @@ import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { ROUTE } from "@/routes/router";
 import type { IsidebarItems } from "@/types/general";
 import { IoFastFood, IoSettingsSharp } from "react-icons/io5";
+import { MdCategory } from "react-icons/md";
 import { Outlet, useNavigate } from "react-router-dom";
 
 export default function GeneralLayout() {
@@ -15,6 +16,13 @@ export default function GeneralLayout() {
       url: ROUTE.FOODS,
       icon: IoFastFood,
       onClick: () => navigate(ROUTE.FOODS),
+      isAvailable: true,
+    },
+    {
+      title: "Categories",
+      url: ROUTE.CATEGORIES,
+      icon: MdCategory,
+      onClick: () => navigate(ROUTE.CATEGORIES),
       isAvailable: true,
     },
     {
